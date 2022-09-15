@@ -20,10 +20,11 @@ describe("config", () => {
   });
 
   context("config PORT in prod", () => {
-    beforeEach(() => {
-      process.env.NODE_ENV = "prod";
+    afterEach(() => {
+      delete process.env.NODE_ENV;
     });
     it("should call check PORT in prod env", () => {
+      process.env.NODE_ENV = "prod";
       expect(config.PORT).to.deep.equal("" + PORT);
       expect(config.GEOAPIFYKEY).to.be.exist;
       expect(config.APP_SECRET).to.be.exist;

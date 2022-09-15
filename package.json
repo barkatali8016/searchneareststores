@@ -8,7 +8,7 @@
     "prod": "NODE_ENV=prod nodemon  src/index.js",
     "test": "NODE_ENV=dev mocha \"./{,!(node_modules)/**/}*.test.js\" --exit",
     "test2": "mocha \"./tests/**/*.js\" --recursive",
-    "coverage": "NODE_ENV=dev nyc --reporter=text npm test"
+    "coverage": "NODE_ENV=dev nyc --reporter=text --reporter=html npm test "
   },
   "keywords": [],
   "author": "",
