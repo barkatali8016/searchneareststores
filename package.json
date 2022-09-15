@@ -8,7 +8,8 @@
     "prod": "NODE_ENV=prod nodemon  src/index.js",
     "test": "NODE_ENV=dev mocha \"./{,!(node_modules)/**/}*.test.js\" --exit",
     "test2": "mocha \"./tests/**/*.js\" --recursive",
-    "coverage": "NODE_ENV=dev nyc --reporter=text npm test"
+    "coverage": "NODE_ENV=dev nyc --reporter=text --reporter=html npm test ",
+    "swagger-autogen": "node src/swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,9 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "swagger-autogen": "^2.21.8",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "chai": "^4.3.6",

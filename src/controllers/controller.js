@@ -28,6 +28,7 @@ const getSuperMarketsHelper = async ({ lat, lon, radius, limit }) => {
  * @returns formatedResponse
  */
 const formatResponse = (supermarkets) => {
+  console.log(supermarkets, "supermarkets===========supermarkets");
   if (supermarkets.data.features.length > 0) {
     return {
       total: supermarkets.data.features.length,
@@ -49,6 +50,7 @@ const getNearBySuperMarkets = async (req, res) => {
   try {
     // getting latitude and longitude using postcode
     const response = await getLatLongByPostCode(postcode);
+    console.log(response, "I AM IN CONTROLLER+++++======");
     if (response.data && response.data.results[0]) {
       const { lat, lon } = response.data.results[0];
 

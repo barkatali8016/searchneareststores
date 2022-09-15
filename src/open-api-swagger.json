@@ -1,0 +1,44 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/near-by-supermarkets/{postcode}": {
+      "get": {
+        "description": "get all the nearest supermarkets",
+        "parameters": [
+          {
+            "name": "postcode",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

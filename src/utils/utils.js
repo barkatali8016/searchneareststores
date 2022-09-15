@@ -9,11 +9,7 @@ const { GEOAPIFYKEY } = require("../../config/config");
  */
 const getConfig = (postcode, apikey) => {
   const encPostcode = encodeURIComponent(postcode);
-  return {
-    method: "get",
-    url: `https://api.geoapify.com/v1/geocode/search?postcode=${encPostcode}&format=json&apiKey=${apikey}`,
-    headers: {},
-  };
+  return `https://api.geoapify.com/v1/geocode/search?postcode=${encPostcode}&format=json&apiKey=${apikey}`;
 };
 
 /**
@@ -23,7 +19,7 @@ const getConfig = (postcode, apikey) => {
  */
 const getLatLongByPostCode = (postcode) => {
   const config = getConfig(postcode, GEOAPIFYKEY);
-  return axios(config);
+  return axios.get(config);
 };
 
 /**
@@ -38,10 +34,7 @@ const getSuperMarketConfig = ({
   radius,
   limit,
 }) => {
-  return {
-    method: "get",
-    url: `https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=circle:${lon},${lat},${radius}&bias=proximity:${lon},${lat}&limit=${limit}&apiKey=${apikey}`,
-  };
+  return `https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=circle:${lon},${lat},${radius}&bias=proximity:${lon},${lat}&limit=${limit}&apiKey=${apikey}`;
 };
 
 /**
@@ -51,7 +44,7 @@ const getSuperMarketConfig = ({
  */
 const getSuperMarketsByLatLong = ({ lat, lon, radius, limit }) => {
   const config = getSuperMarketConfig({ lat, lon, GEOAPIFYKEY, radius, limit });
-  return axios(config);
+  return axios.get(config);
 };
 module.exports = {
   getLatLongByPostCode,
