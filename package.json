@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=dev nodemon src/index.js",
-    "prod": "NODE_ENV=prod nodemon  src/index.js"
+    "prod": "NODE_ENV=prod nodemon  src/index.js",
+    "test": "NODE_ENV=dev mocha \"./{,!(node_modules)/**/}*.test.js\" --exit",
+    "test2": "mocha \"./tests/**/*.js\" --recursive",
+    "coverage": "NODE_ENV=dev nyc --reporter=text npm test"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,15 @@
     "express": "^4.18.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "nyc": "^15.1.0",
+    "rewire": "^6.0.0",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^6.2.4"
   }
 }
